@@ -1,0 +1,46 @@
+<div [formGroup]="vm.user" >
+  <mat-form-field>
+    <input type = "text"
+      matInput    
+      placeholder="Name"     
+      formControlName = "name"><br>
+  </mat-form-field>
+
+  {{vm.user.get('name').hasError('eyal')? 'error' : 'no error eyal' }}<br>
+
+  <mat-form-field>
+    <input matInput     
+      formControlName="date"
+      [matDatepicker]="picker" 
+      placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+
+  <section>
+    <mat-checkbox value="1">man</mat-checkbox>
+    <mat-checkbox value="2">female</mat-checkbox>
+  </section>
+
+  <mat-radio-group aria-label="Select an option" formControlName = "gender">
+    <mat-radio-button  value="1">Option 1</mat-radio-button>
+    <mat-radio-button  value="2">Option 2</mat-radio-button>
+  </mat-radio-group>
+
+  email : <input type = "email"  formControlName = "email"><br>
+  age   : <input type = "number" formControlName = "age"><br>
+  Cards : <br>
+  <ul>
+    <li *ngFor="let card of cardsFa.controls;last as l;index as i">
+      <input type="text" [formControl]="card">
+      <button *ngIf="l" (click)="addCard()">+ ({{i}})</button>
+    </li>
+  </ul>
+</div>
+<hr>
+ <button [disabled]="vm.user.status =='PENDING'"> {{vm.user.status == 'PENDING' ? 'PENDING' : 'Save' }} </button> 
+<hr>
+<pre>
+  {{ vm.user.value | json }}
+</pre>

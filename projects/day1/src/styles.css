@@ -1,0 +1,27 @@
+.header{
+    display: grid;
+    grid-template-columns: auto 75px;
+    align-items: center;
+}
+.add-task{
+    width: 75px;
+    height: 33px;
+
+}
+
+.todo-list-layout{
+    display: grid;
+    grid-template-rows: 65px auto 35px;
+    width: 90%;
+    height: 90vh;
+    border:1px solid gray;
+}
+
+.task-layout{
+    display: grid;
+    grid-template-columns: 35px auto 35px;
+    padding: 8px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,9 @@
+<div class="cell" *ngFor="let cell of gs.board.cells">
+  <span [ngClass]="{
+    bom     : cell.status == 'bom',
+    visited : cell.status == 'visited',
+    empty   : cell.status == 'empty',
+    candy   : cell.status=='candy'
+  }">{{cell?.status == 'empty' ? '0' : '1' }}
+</span>
+</div>
